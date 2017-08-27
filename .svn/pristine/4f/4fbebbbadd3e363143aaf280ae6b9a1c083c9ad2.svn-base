@@ -1,0 +1,189 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    tools:context=".MainActivity"
+    android:background="@color/color_fondo">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:background="@color/color_naranja"
+            android:text="@string/login"
+            android:textColor="@color/color_white"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        ImageView
+            android:id="@+id/imageViewAbout"
+            android:layout_width="@dimen/help_icons_size"
+            android:layout_height="@dimen/help_icons_size"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/about"
+            android:onClick="onAboutButtonPressed"
+            android:src="@drawable/about" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/footer"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:contentDescription="@string/logo"
+                android:src="@drawable/elemento" />
+
+            <view
+                android:id="@+id/triangleAbout"
+                class="i2t.cideim.custom.TriangleView"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/logo"
+                android:visibility="invisible"
+                app:color="@color/color_orange"
+                app:margin="16dp"
+                app:orientation="right" />
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/triangleAbout"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/triangleAbout"
+                android:layout_toEndOf="@+id/triangleAbout"
+                android:background="@color/color_transparent"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/login_name"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_azul_frio_1"
+                android:textColorHint="@color/color_azul_calido_2"
+                android:textSize="@dimen/login_text" />
+
+            <view
+                android:id="@+id/triangleId"
+                class="i2t.cideim.custom.TriangleView"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/triangleAbout"
+                android:visibility="invisible"
+                app:color="@color/color_orange"
+                app:margin="16dp"
+                app:orientation="right" />
+
+            <EditText
+                android:id="@+id/editTextId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/triangleId"
+                android:layout_alignLeft="@+id/editTextName"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/editTextName"
+                android:layout_alignTop="@+id/triangleId"
+                android:layout_toEndOf="@+id/triangleAbout"
+                android:background="@color/color_transparent"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/login_id"
+                android:inputType="number"
+                android:textColor="@color/color_azul_frio_1"
+                android:textColorHint="@color/color_azul_calido_2"
+                android:textSize="@dimen/login_text" />
+
+            <ImageView
+                android:id="@+id/imageViewAbout"
+                android:layout_width="@dimen/help_icons_size"
+                android:layout_height="@dimen/help_icons_size"
+                android:contentDescription="@string/about"
+                android:onClick="onAboutButtonPressed"
+                android:src="@drawable/about"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+    <Button
+        android:id="@+id/buttonAdd2"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
+        android:background="@color/color_azul_frio_1"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
+        android:onClick="onButtonAddClick"
+        android:text="Registrarse"
+        android:textColor="@color/color_white"
+        android:textSize="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/buttonEnter"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="@color/color_azul_frio_1"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
+        android:onClick="onButtonEnterClick"
+        android:text="Entrar"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/color_white"
+        android:textSize="40sp"
+        android:layout_above="@id/buttonAdd2"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

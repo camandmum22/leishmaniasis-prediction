@@ -1,0 +1,678 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="5dp"
+    tools:context=".InjuryStatusActivity"
+    android:background="@color/color_fondo">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_naranja"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Estado actual de lesiones"
+            android:textColor="@color/color_white"
+            android:textStyle="bold"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/txt0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Control de seguimiento a la semana:"
+                android:textColor="@color/color_azul_frio_2"
+                android:textSize="20dp" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/semanaSeguimiento"
+                android:layout_below="@id/txt0"
+                android:inputType="number"
+                android:hint="semana"
+                android:textColorHint="@color/color_azul_frio_1"
+                android:textColor="@color/color_azul_frio_2"/>
+            <RelativeLayout
+                android:id="@+id/revlay1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/semanaSeguimiento"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <ImageView
+                    android:id="@+id/vineta1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta1"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Evaluación Clínica"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spEvaluacionClinica"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt1"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/revlay2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay1"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <ImageView
+                    android:id="@+id/vineta2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <EditText
+                    android:id="@+id/fechaCuracion"
+                    android:inputType="date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vineta2"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="Fecha de Curación"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textColorHint="@color/color_azul_frio_1"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay2"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <ImageView
+                    android:id="@+id/vineta3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta3"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Ubicación"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spUbicacion"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt3"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay3"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <ImageView
+                    android:id="@+id/vineta4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta4"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Clasificación de la lesión"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spClasificacionLesion"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt4"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay4"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <ImageView
+                    android:id="@+id/vineta5"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta5"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Tipo de Lesión"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spTipoLesion"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt5"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay5"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <ImageView
+                    android:id="@+id/vineta6"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta6"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Pápulas satélites"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spPapulasSatelitales"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt6"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay6"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <ImageView
+                    android:id="@+id/vineta7"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta7"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Trayecto Linfático"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spTrayectoLinfatico"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt7"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay7"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <ImageView
+                    android:id="@+id/vineta8"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta8"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Adenopatía Regional"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spAdenopatiaRegional"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt8"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay8"
+                android:paddingBottom="15dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <ImageView
+                    android:id="@+id/vineta9"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vineta9"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingBottom="5dp"
+                    android:text="Máximo Eje Horizontal"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/txt91"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt9"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingTop="10dp"
+                    android:text="Lesión (mm)"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/spEjeHorizontalLesion"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp"
+                    android:layout_below="@id/txt9"
+                    android:layout_toRightOf="@id/txt91"/>
+
+                <TextView
+                    android:id="@+id/txt92"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt9"
+                    android:layout_toRightOf="@id/spEjeHorizontalLesion"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Ulcera (mm)"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/spEjeHorizontalUlcera"
+                    android:layout_width="80dp"
+                    android:layout_height="30sp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp"
+                    android:layout_below="@id/txt9"
+                    android:layout_toRightOf="@id/txt92" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay9"
+                android:paddingBottom="15dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <ImageView
+                    android:id="@+id/vineta10"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vineta10"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingBottom="5dp"
+                    android:text="Máximo Eje Vertical"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/txt101"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt10"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingTop="10dp"
+                    android:text="Lesión (mm)"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/spEjeVerticalLesion"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp"
+                    android:layout_below="@id/txt10"
+                    android:layout_toRightOf="@id/txt101"/>
+
+                <TextView
+                    android:id="@+id/txt102"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt10"
+                    android:layout_toRightOf="@id/spEjeVerticalLesion"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Ulcera (mm)"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/spEjeVerticalUlcera"
+                    android:layout_width="80dp"
+                    android:layout_height="30sp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="16dp"
+                    android:layout_below="@id/txt10"
+                    android:layout_toRightOf="@id/txt102" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay11"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay10"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <ImageView
+                    android:id="@+id/vineta11"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/vineta11"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Área Lesión (mm)"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/spAreaLesion"
+                    android:layout_width="fill_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/color_white"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/txt11"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+
+           <Button
+                android:id="@+id/buttonFin"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@color/color_azul_frio_1"
+                android:layout_below="@id/revlay11"
+                android:fontFamily="sans-serif-light"
+                android:textStyle="bold"
+                android:onClick="onButtonFinClick"
+                android:text="Finalizar"
+                android:textColor="@color/color_white"
+                android:textSize="40sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/body">
+    </RelativeLayout>
+
+</RelativeLayout>

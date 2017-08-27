@@ -1,0 +1,168 @@
+package i2t.cideim.leishmaniasis;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import i2t.cideim.custom.TriangleView;
+import i2t.cideim.data.DatabaseHandler;
+import i2t.cideim.model.LiderComunitario;
+
+/**
+ * Created by Leonardo.
+ * This activity allows to create a new user (former líder comunitario).
+ */
+
+public class AdverseEventsActivity extends Activity {
+
+    //--------------------------
+    private Spinner spTratamiento;
+    private EditText lugarTratamiento;
+    private EditText fechaPrimeraDosis;
+    private EditText fechaUltimaDosis;
+    private Spinner spTratamientoCompleto;
+    private Spinner spTratamientoTiempoOrdenado;
+    private EditText razonPreguntas;
+
+    private Spinner spDolorInyeccion;
+    private Spinner spInfeccionSitio;
+    private Spinner spMalGeneral;
+    private Spinner spMialgias;
+    private Spinner spArtralgias;
+    private Spinner spCefalea;
+    private Spinner spFiebre;
+    private Spinner spNauseas;
+    private Spinner spVomito;
+    private Spinner spDiarrea;
+    private Spinner spDolorAbdominal;
+    private Spinner spAnorexia;
+    private Spinner spMareo;
+    private Spinner spPalpitaciones;
+    private Spinner spParaclinicos;
+
+    private Spinner spPresentaAdversos;
+    private EditText enfermedadAsociadaTratamiento;
+    private EditText otroMedicamentoTratamiento;
+
+    private DatabaseHandler db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_adverse_events);
+
+        // Loads the database
+        db = new DatabaseHandler(this);
+
+        // Editable fields
+        spTratamiento = (Spinner) findViewById(R.id.spTratamiento);
+        lugarTratamiento = (EditText) findViewById(R.id.lugarTratamiento);
+        fechaPrimeraDosis = (EditText) findViewById(R.id.fechaPrimeraDosis);
+        fechaUltimaDosis = (EditText) findViewById(R.id.fechaUltimaDosis);
+        spTratamientoCompleto = (Spinner) findViewById(R.id.spTratamientoCompleto);
+        spTratamientoTiempoOrdenado = (Spinner) findViewById(R.id.spTratamientoTiempoOrdenado);
+        razonPreguntas = (EditText) findViewById(R.id.razonPreguntas);
+
+        spDolorInyeccion = (Spinner) findViewById(R.id.spDolorInyeccion);
+        spInfeccionSitio = (Spinner) findViewById(R.id.spInfeccionSitio);
+        spMalGeneral = (Spinner) findViewById(R.id.spMalGeneral);
+        spMialgias = (Spinner) findViewById(R.id.spMialgias);
+        spArtralgias = (Spinner) findViewById(R.id.spArtralgias);
+        spCefalea = (Spinner) findViewById(R.id.spCefalea);
+        spFiebre = (Spinner) findViewById(R.id.spFiebre);
+        spNauseas = (Spinner) findViewById(R.id.spNauseas);
+        spVomito = (Spinner) findViewById(R.id.spVomito);
+        spDiarrea = (Spinner) findViewById(R.id.spDiarrea);
+        spDolorAbdominal = (Spinner) findViewById(R.id.spDolorAbdominal);
+        spAnorexia = (Spinner) findViewById(R.id.spAnorexia);
+        spMareo = (Spinner) findViewById(R.id.spMareo);
+        spPalpitaciones = (Spinner) findViewById(R.id.spPalpitaciones);
+        spParaclinicos = (Spinner) findViewById(R.id.spParaclinicos);
+
+        spPresentaAdversos = (Spinner) findViewById(R.id.spPresentaAdversos);
+        enfermedadAsociadaTratamiento = (EditText) findViewById(R.id.enfermedadAsociadaTratamiento);
+        otroMedicamentoTratamiento = (EditText) findViewById(R.id.otroMedicamentoTratamiento);
+
+        // Data for the spinners (a.k.a. drop down lists)
+        ArrayAdapter<CharSequence> adapterListTratamientos = ArrayAdapter.createFromResource(this, R.array.list_tratamientos, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> adapterSI_NO = ArrayAdapter.createFromResource(this, R.array.list_yes_no, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> adapterPresencia = ArrayAdapter.createFromResource(this, R.array.list_presencia, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> adapterTratamiento = ArrayAdapter.createFromResource(this, R.array.tabla_tratamiento, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> adapterEvaluacionClinica = ArrayAdapter.createFromResource(this, R.array.evaluacion_clinica, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> adapterUbicacion = ArrayAdapter.createFromResource(this, R.array.ubicacion, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> adapterClasificacion = ArrayAdapter.createFromResource(this, R.array.clasificacion, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> adapterTipo_lesion = ArrayAdapter.createFromResource(this, R.array.tipo_lesion, R.layout.spinner_layout);
+
+        adapterListTratamientos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterSI_NO.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterPresencia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterTratamiento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterEvaluacionClinica.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterUbicacion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterClasificacion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterTipo_lesion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spTratamiento.setAdapter(adapterListTratamientos);
+
+        spTratamientoCompleto.setAdapter(adapterSI_NO);     spTratamientoTiempoOrdenado.setAdapter(adapterSI_NO);
+        spPresentaAdversos.setAdapter(adapterSI_NO);
+
+        spDolorInyeccion.setAdapter(adapterTratamiento);    spInfeccionSitio.setAdapter(adapterTratamiento);
+        spParaclinicos.setAdapter(adapterTratamiento);    spMalGeneral.setAdapter(adapterTratamiento);
+        spMialgias.setAdapter(adapterTratamiento);    spDiarrea.setAdapter(adapterTratamiento);
+        spArtralgias.setAdapter(adapterTratamiento);    spDolorAbdominal.setAdapter(adapterTratamiento);
+        spCefalea.setAdapter(adapterTratamiento);    spAnorexia.setAdapter(adapterTratamiento);
+        spFiebre.setAdapter(adapterTratamiento);    spMareo.setAdapter(adapterTratamiento);
+        spNauseas.setAdapter(adapterTratamiento);    spPalpitaciones.setAdapter(adapterTratamiento);
+        spVomito.setAdapter(adapterTratamiento);
+    }
+
+    /* Creates the new user in the database */
+    public void onButtonFinClick(View view) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Has Acabado POR FIN", Toast.LENGTH_LONG);
+        toast.show();
+        /*// Obtains the data from the editable fields
+        String name = editTextName.getText().toString();
+        String lastName = editTextLastName.getText().toString();
+        String id = editTextId.getText().toString();
+        char genre = toggleButtonM.isChecked() ? 'M' : 'F';
+
+        // Validates that the required data is available
+        if (name.trim().length() != 0 && lastName.trim().length() != 0 && id.trim().length() != 0) {
+
+            // Creates the user
+            LiderComunitario liderComunitario = new LiderComunitario(id, name, lastName, genre);
+            int result = db.addUser(liderComunitario);
+
+            if (result == DatabaseHandler.SUCCESS) {
+                super.onBackPressed();
+            } else if (result == DatabaseHandler.RECORD_EXIST) {
+                textViewTitle.setText(R.string.create_user_exist);
+            }
+        } else {
+            textViewTitle.setText(R.string.create_non_valid_data);
+        }
+        */
+    }
+
+    /* Alerts the user that the unsaved data will be lost */
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.back_alert);
+        builder.setPositiveButton(R.string.go_back, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                AdverseEventsActivity.super.onBackPressed();
+            }
+        });
+        builder.setNegativeButton(R.string.stay, null);
+        builder.create().show();
+    }
+}

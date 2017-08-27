@@ -1,0 +1,255 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="5dp"
+    tools:context=".TreatmentControlActivity"
+    android:background="@color/color_fondo">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_naranja"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Control de tratamiento"
+            android:textColor="@color/color_white"
+            android:textStyle="bold"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="20dp">
+
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Seleccione el nombre del tratamiento"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spNombreTratamiento"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/txt1"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="30dp"
+                    />
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_below="@id/spNombreTratamiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                android:text="Si presenta algún malestar durante el tratamiento, por favor llame al número telefónico 555 21 64 en Cali o al 727 25 66 en Tumaco."
+                android:textColor="@color/color_azul_frio_2"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_below="@id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:text="FAVOR DESCARTAR DIARIAMENTE EL VOLUMEN DE MEDICAMENTO SOBRANTE"
+                android:textColor="@color/color_azul_frio_2"
+                android:textSize="20dp" />
+
+            <RelativeLayout
+                android:id="@+id/revlay1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt3"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <ImageView
+                    android:id="@+id/vineta1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <EditText
+                    android:id="@+id/fecha"
+                    android:inputType="date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vineta1"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="Ingrese la Fecha"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textColorHint="@color/color_azul_frio_1"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay1"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <ImageView
+                    android:id="@+id/vineta2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vineta2"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Volumen administrado (g):"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/spVolumen"
+                    android:layout_width="80dp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:layout_height="30sp"
+                    android:background="@color/color_white"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toRightOf="@id/txt4"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay2"
+                android:paddingBottom="0dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <ImageView
+                    android:id="@+id/vineta3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/icons_top_margin"
+                    android:contentDescription="@string/create_patient"
+                    android:src="@drawable/vineta"/>
+
+                <TextView
+                    android:id="@+id/txt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vineta3"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Número del lote:"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/txt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vineta3"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_below="@id/txt5"
+                    android:text="*Sólo si lo conoce"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/spLote"
+                    android:layout_width="80dp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:layout_height="30sp"
+                    android:background="@color/color_white"
+                    android:layout_marginLeft="98dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_toRightOf="@id/txt5"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+            <Button
+            android:id="@+id/buttonFin"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/revlay3"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_azul_frio_1"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"
+            android:onClick="onButtonFinClick"
+            android:text="Finalizar"
+            android:textColor="@color/color_white"
+            android:textSize="40sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/body">
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,158 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="5dp"
+    tools:context=".WeekComprobationActivity"
+    android:background="@color/color_fondo">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_naranja"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Tratamiento y Seguimiento"
+            android:textColor="@color/color_white"
+            android:textStyle="bold"
+            android:textSize="28sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="20dp">
+
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="El paciente se encuentra en la semana:"
+                    android:textColor="@color/color_azul_frio_2"
+                    android:textSize="20dp" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/semana"
+                android:layout_below="@id/txt1"
+                android:background="@color/color_white"
+                android:inputType="number"
+                android:hint="semana"
+                android:enabled="false"
+                android:textColorHint="@color/color_azul_frio_1"
+                android:textColor="@color/color_azul_frio_2"/>
+
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_below="@id/semana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                android:text="A continuacion se presentan las opciones disponibles, de acuerdo a la semana"
+                android:textColor="@color/color_azul_frio_2"
+                android:textSize="16dp" />
+
+
+            <RelativeLayout
+                android:id="@+id/revlay2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt2"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <Button
+                    android:id="@+id/buttonControl"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_azul_frio_2"
+                    android:fontFamily="sans-serif-light"
+                    android:onClick="onButtonControlTratamientoClick"
+                    android:text="Realizar control de tratamiento"
+                    android:textColor="@color/color_white"
+                    android:textSize="22sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay2"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_2">
+
+                <Button
+                    android:id="@+id/buttonAdverse"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_azul_frio_1"
+                    android:fontFamily="sans-serif-light"
+                    android:onClick="onButtonAdverseEventsClick"
+                    android:text="Evaluar eventos adversos"
+                    android:textColor="@color/color_white"
+                    android:textSize="22sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/revlay1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revlay3"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:background="@color/color_azul_calido_1">
+
+                <Button
+                    android:id="@+id/buttonInjury"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_azul_frio_2"
+                    android:fontFamily="sans-serif-light"
+                    android:onClick="onButtonEstadoLesionesClick"
+                    android:text="Evaluar estado de lesiones"
+                    android:textColor="@color/color_white"
+                    android:textSize="22sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/body">
+    </RelativeLayout>
+
+</RelativeLayout>
