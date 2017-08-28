@@ -1,4 +1,5 @@
-# Research Project ‘Coetaneous Leishmaniasis in Rural Communities’
+# Research Project 
+* Coetaneous Leishmaniasis in Rural Communities
 
 ## Institution(s)
 * i2t Research Group, University Icesi
